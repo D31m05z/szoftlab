@@ -1,0 +1,18 @@
+# Felvesszuk az utat es az ellenseget
+Ut_felvetele 0 0 100 0
+Uj_ellenseg Road_0 HumanEnemy
+
+#Beallitjuk a manat, hogy legyen mibol tornyot venni
+Mana_beallitasa 1000
+Uj_torony BasicTower 50 2
+
+#Kiirjuk az kezdeti allapotokat
+Ellenseg_parameterei Enemy_0
+Torony_parameterei Tower_0
+
+#Leptetjuk a vilagot
+Ido 100
+
+#Kiirjuk az uj allapotokat
+Ellenseg_parameterei Enemy_0
+Torony_parameterei Tower_0
