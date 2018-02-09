@@ -1,8 +1,8 @@
 package Enemies;
 
 /*
-	Az ellensĂ©gek interfĂ©sze, a vilĂˇg, tornyok Ă©s utak
-	Ăˇltal lĂˇthatĂł metĂłdusok gyĹ±jtemĂ©nye.
+	Az ellensgek interfsze, a vilg, tornyok s utak
+	ltal lthat metdusok gyjtemnye.
 */
 
 import java.awt.Point;
@@ -15,42 +15,42 @@ import Towers.Rocks.IRock;
 
 public interface IEnemy extends Drawable
 {
-	// Az idĹ‘ mĂşlĂˇsĂˇrĂłl valĂł Ă©rtesĂ­tĂ©s
+	// Az id mlsrl val rtests
 	public void action(long dt);
 	
-	// A pĂˇlyĂˇn lĂ©vĹ‘ pozĂ­ciĂł lekĂ©rdezĂ©se
+	// A plyn lv pozci lekrdezse
 	public Point getLocation();
 	
-	// Az ellensĂ©g Ă©rtesĂ­tĂ©se arrĂłl, hogy megtĂˇmadtĂˇk. Ă�tveszi mennyi az aktuĂˇlis
-	// mana mennyisĂ©ge, Ă©s visszatĂ©r azzal, mennyi az Ăşj mana mennyisĂ©ge
-	// (ha az ellensĂ©g meghal, manĂˇt generĂˇl)
+	// Az ellensg rtestse arrl, hogy megtmadtk. tveszi mennyi az aktulis
+	// mana mennyisge, s visszatr azzal, mennyi az j mana mennyisge
+	// (ha az ellensg meghal, mant generl)
 	public long damage(long damage, long mana);
 	
-	// Az ellensĂ©g Ă©rtesĂ­tĂ©se arrĂłl, hogy rajta az adott kĹ‘ hatĂˇsa innentĹ‘l Ă©rvĂ©nyes
+	// Az ellensg rtestse arrl, hogy rajta az adott k hatsa innentl rvnyes
 	public void activateRock(IRock rock);
 	
-	// Az ellensĂ©g Ă©rtesĂ­tĂ©se arrĂłl, hogy rajta az adott kĹ‘ hatĂˇsa innentĹ‘l nem Ă©rvĂ©nyes
+	// Az ellensg rtestse arrl, hogy rajta az adott k hatsa innentl nem rvnyes
 	public void deactivateRock(IRock rock);
 	
-	// Az aktuĂˇlis Ăşt beĂˇllĂ­tĂˇsa
+	// Az aktulis t belltsa
 	public void setRoad(IRoad road);
 	
-	// Az aktuĂˇlis ĂştparamĂ©ter beĂˇllĂ­tĂˇsa
+	// Az aktulis tparamter belltsa
 	public void setRoadParameter(long t);
 	
-	// Az aktuĂˇlis vilĂˇg beĂˇllĂ­tĂˇsa
+	// Az aktulis vilg belltsa
 	public void setWorld(IWorld w);
 	
-	// A jelenleg tĂˇmadandĂł blokĂˇd beĂˇllĂ­tĂˇsa
+	// A jelenleg tmadand blokd belltsa
 	public void setTarget(IBlockade blockade);
 	
-	// "FelezĹ‘" tĂˇmadĂˇs fogadĂˇsĂˇra szolgĂˇlĂł metĂłdus
+	// "Felez" tmads fogadsra szolgl metdus
 	public void split();
 	
-	// Az aktuĂˇlis blokĂˇd megtĂˇmadĂˇsĂˇt kezdemĂ©nyezĹ‘ metĂłdus 
+	// Az aktulis blokd megtmadst kezdemnyez metdus 
 	public void attack();
 	
-	// Ă‰rtesĂ­tĂ©s errĂłl, hogy az aktuĂˇlis Ăşton adott
-	// mennyisĂ©gĹ± idĹ‘ eltelĂ©se miatt tovĂˇbb kell haladni.
+	// rtests errl, hogy az aktulis ton adott
+	// mennyisg id eltelse miatt tovbb kell haladni.
 	public void moveForward(long dt);
 }

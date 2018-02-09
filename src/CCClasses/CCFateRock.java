@@ -3,11 +3,11 @@ import Towers.Rocks.FateRock;
 
 /*
 	A FateRock ConcreteCreatora,
-	visszatér egy FateRock referenciával
+	visszater egy FateRock referenciaval
 	
-	A FateRock singleton, ezért nem lehet
-	meghívni a konstruktorát, viszont
-	van getInstance függvénye
+	A FateRock singleton, ezert nem lehet
+	meghivni a konstruktorat, viszont
+	van getInstance fuggvenye
 */
 
 public class CCFateRock implements ICreator 

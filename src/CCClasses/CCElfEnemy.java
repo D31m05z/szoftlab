@@ -3,7 +3,7 @@ import Enemies.ElfEnemy;
 
 /*
 	A ElfEnemy ConcreteCreatora,
-	visszatér egy ElfEnemy referenciával
+	visszater egy ElfEnemy referenciaval
 */
 
 public class CCElfEnemy implements ICreator

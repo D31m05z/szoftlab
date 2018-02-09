@@ -3,11 +3,11 @@ import Towers.Rocks.JarRock;
 
 /*
 	A JarRock ConcreteCreatora,
-	visszatér egy JarRock referenciával
+	visszater egy JarRock referenciaval
 	
-	A JarRock singleton, ezért nem lehet
-	meghívni a konstruktorát, viszont
-	van getInstance függvénye
+	A JarRock singleton, ezert nem lehet
+	meghivni a konstruktorat, viszont
+	van getInstance fuggvenye
 */
 
 public class CCJarRock implements ICreator 

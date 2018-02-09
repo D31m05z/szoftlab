@@ -3,7 +3,7 @@ import Enemies.DwarfEnemy;
 
 /*
 	A DwarfEnemy ConcreteCreatora,
-	visszatér egy DwarfEnemy referenciával
+	visszater egy DwarfEnemy referenciaval
 */
 
 public class CCDwarfEnemy implements ICreator

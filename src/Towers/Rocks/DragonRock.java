@@ -1,8 +1,8 @@
 package Towers.Rocks;
 
 /*
-	Az Ezer sárkány dühe kőtipus osztálya, amely megvalósítja a kő interface-t.
-	Tartalmazza az ezer sárkány dühe metódusait
+	Az Ezer srkny dhe ktipus osztlya, amely megvalstja a k interface-t.
+	Tartalmazza az ezer srkny dhe metdusait
 */
 
 import Enemies.Enemy;
@@ -14,7 +14,7 @@ public class DragonRock implements IRock
 	
 	private DragonRock()  { }
 	
-	// Singleton osztály példányának visszaadása, ha nincs példány létrehoz, majd azt adja vissza.
+	// Singleton osztly pldnynak visszaadsa, ha nincs pldny ltrehoz, majd azt adja vissza.
 	public static DragonRock getInstance() 
 	{  
 		if(myInstance == null)
@@ -23,19 +23,19 @@ public class DragonRock implements IRock
 			return myInstance;
 	}
 	
-	// A megadott ellenségen kifejti a kő hatását
+	// A megadott ellensgen kifejti a k hatst
 	public void activateOn(Enemy e) 
 	{
 		e.setDragon(true);
 	}
 	
-	// A megadott ellenségen deaktiválja a kő hatását
+	// A megadott ellensgen deaktivlja a k hatst
 	public void deactivateOn(Enemy e) 
 	{
 		e.setDragon(false);
 	}
 	
-	// A GameStatics osztályból elkéri a kő árát
+	// A GameStatics osztlybl elkri a k rt
 	public long getCost()
 	{
 		return GameStatics.RockCosts.Dragon;

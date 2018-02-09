@@ -1,8 +1,8 @@
 package Towers;
 
 /*
-	Alap torony osztálya. A torony ösosztály leszármazottja, így a torony interface t is megvalósítja
-	Az alap torony függvényeit valósítja meg.
+	Alap torony osztlya. A torony sosztly leszrmazottja, gy a torony interface t is megvalstja
+	Az alap torony fggvnyeit valstja meg.
 */
 
 import java.awt.Color;
@@ -17,7 +17,7 @@ public class BasicTower extends Tower
 {
 	public BasicTower()  { }
 
-	// A GameStatics osztályból elkéri a torony hatótávolságát
+	// A GameStatics osztlybl elkri a torony hattvolsgt
 	public long getRange() 
 	{
 		double corrig = 1;
@@ -26,13 +26,13 @@ public class BasicTower extends Tower
 		return (long)(GameStatics.Towers.Basic.fireRange[state]*corrig);
 	}
 
-	// A GameStatics osztályból elkéri a torony sebzését
+	// A GameStatics osztlybl elkri a torony sebzst
 	public long getDamage()
 	{
 		return GameStatics.Towers.Basic.fireDamage[state];
 	}
 
-	// A GameStatics osztályból elkéri a torony tűzgyorsaságát
+	// A GameStatics osztlybl elkri a torony tzgyorsasgt
 	public long getFireRate()
 	{
 		return GameStatics.Towers.Basic.fireRate[state];
@@ -43,7 +43,7 @@ public class BasicTower extends Tower
 		Drawer.getInstance().Draw(g, this);
 	}
 
-	// A torony fejlesztése, amellyel minden attribútumértéke javul
+	// A torony fejlesztse, amellyel minden attribtumrtke javul
 	public long upgrade(long mana) 
 	{
 		long cost = GameStatics.Towers.Basic.upgradeCosts[state];
@@ -55,7 +55,7 @@ public class BasicTower extends Tower
 		return mana;
 	}
 	
-	// A GameStatics osztályból elkéri a torony árát
+	// A GameStatics osztlybl elkri a torony rt
 	public long buildPrice()
 	{
 		return GameStatics.Towers.Basic.initCost;

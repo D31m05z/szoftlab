@@ -1,8 +1,8 @@
 package Towers.Rocks;
 
 /*
-	A végtelen korsó kőtipus osztálya, amely megvalósítja a kő interface-t.
-	Tartalmazza a végtelen korsó metódusait
+	A vgtelen kors ktipus osztlya, amely megvalstja a k interface-t.
+	Tartalmazza a vgtelen kors metdusait
 */
 
 import Enemies.Enemy;
@@ -14,7 +14,7 @@ public class JarRock implements IRock
 
 	private JarRock()  { }
 
-	// Singleton osztály példányának visszaadása, ha nincs példány létrehoz, majd azt adja vissza.
+	// Singleton osztly pldnynak visszaadsa, ha nincs pldny ltrehoz, majd azt adja vissza.
 	public static JarRock getInstance() 
 	{  
 		if(myInstance == null)
@@ -23,19 +23,19 @@ public class JarRock implements IRock
 			return myInstance;
 	}
 
-	// A megadott ellenségen kifejti a kő hatását
+	// A megadott ellensgen kifejti a k hatst
 	public void activateOn(Enemy e)
 	{
 		e.setJar(true);
 	}
 
-	// A megadott ellenségen deaktiválja a kő hatását
+	// A megadott ellensgen deaktivlja a k hatst
 	public void deactivateOn(Enemy e)
 	{
 		e.setJar(false);
 	}
 	
-	// A GameStatics osztályból elkéri a kő árát
+	// A GameStatics osztlybl elkri a k rt
 	public long getCost()
 	{
 		return GameStatics.RockCosts.Jar;

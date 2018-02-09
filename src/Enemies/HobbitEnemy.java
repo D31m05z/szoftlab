@@ -1,7 +1,7 @@
 package Enemies;
 
 /*
-	HobbitEnemy osztály, az Enemy leszármazottja
+	HobbitEnemy osztly, az Enemy leszrmazottja
 */
 
 import java.awt.Color;
@@ -12,7 +12,7 @@ import Main.GameStatics;
 
 public class HobbitEnemy extends Enemy
 {
-	// Konstruktor, támadóerő, sebesség és hp beállítása
+	// Konstruktor, tmader, sebessg s hp belltsa
 	public HobbitEnemy()
 	{
 		damagePower = GameStatics.Enemies.Hobbit.damagePower;
@@ -20,8 +20,8 @@ public class HobbitEnemy extends Enemy
 		hp = GameStatics.Enemies.Hobbit.initHp;
 	}
 	
-	// Támadás fogadása, tekintettel arra, hogy a
-	// hobbit-okra hat a jar kő is
+	// Tmads fogadsa, tekintettel arra, hogy a
+	// hobbit-okra hat a jar k is
 	public void action(long dt)
 	{
 		if (isJarOnMe)
@@ -30,7 +30,7 @@ public class HobbitEnemy extends Enemy
 			moveForward(dt);
 	}
 	
-	// Másoldó metódus (a split-hez kell)
+	// Msold metdus (a split-hez kell)
 	protected Enemy copy()
 	{
 		return new HobbitEnemy();

@@ -1,7 +1,7 @@
 package Enemies;
 
 /*
-	ElfEnemy osztály, az Enemy leszármazottja
+	ElfEnemy osztly, az Enemy leszrmazottja
 */
 
 import java.awt.Color;
@@ -11,7 +11,7 @@ import Main.*;
 
 public class ElfEnemy extends Enemy
 {
-	// Konstruktor, támadóerő, sebesség és hp beállítása
+	// Konstruktor, tmader, sebessg s hp belltsa
 	public ElfEnemy()
 	{
 		damagePower = GameStatics.Enemies.Elf.damagePower;
@@ -19,8 +19,8 @@ public class ElfEnemy extends Enemy
 		hp = GameStatics.Enemies.Elf.initHp;
 	}
 
-	// Támadás fogadása, tekintettel arra, hogy az
-	// elf-okra hat a fate kő is (és amúgy nem mindig látható ==> nem mindig támadható)
+	// Tmads fogadsa, tekintettel arra, hogy az
+	// elf-okra hat a fate k is (s amgy nem mindig lthat ==> nem mindig tmadhat)
 	public long damage(long damage, long mana)
 	{
 
@@ -30,7 +30,7 @@ public class ElfEnemy extends Enemy
 		return mana;
 	}
 	
-	// Másoldó metódus (a split-hez kell)
+	// Msold metdus (a split-hez kell)
 	protected Enemy copy()
 	{
 		return new ElfEnemy();

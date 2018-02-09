@@ -1,7 +1,7 @@
 package Towers;
 
 /*
-	Torony Interface, ezen keresztül látják a torony függvényeit.
+	Torony Interface, ezen keresztl ltjk a torony fggvnyeit.
 */
 
 import java.awt.Point;
@@ -14,39 +14,39 @@ import Towers.Rocks.IRock;
 
 public interface ITower extends Drawable
 {
-	// Az idő múlásáról való értesítés
+	// Az id mlsrl val rtests
 	public long action(long dt, Collection<IEnemy> victims, long mana);
 	
-	// Felrakja a toronyra a követ
+	// Felrakja a toronyra a kvet
 	public void applyRock(IRock r);
 	
-	// Eltávolítja a toronyról a követ
+	// Eltvoltja a toronyrl a kvet
 	public void removeRock();
 	
-	// Visszaadja a tornyon lévő követ
+	// Visszaadja a tornyon lv kvet
 	public IRock getMyRock();
 	
-	// Beállítja a világot a torony számára
+	// Belltja a vilgot a torony szmra
 	public void setWorld(IWorld w);
 	
-	// Beállítja a torony helyzetét
+	// Belltja a torony helyzett
 	public void setLocation(Point p);
 	
-	// Visszaadja a torony aktuális helyzetét
+	// Visszaadja a torony aktulis helyzett
 	public Point getLocation();
 	
-	// A torony kiválasztja azt az ellenséget amelyet támadni fog
+	// A torony kivlasztja azt az ellensget amelyet tmadni fog
 	public void chooseVictim(Collection<IEnemy> victims);
 	
-	// Megtámadja a kiválasztott ellenfelet
+	// Megtmadja a kivlasztott ellenfelet
 	public long attackLastChoosed(long mana);
 	
-	// A torony fejlesztése
+	// A torony fejlesztse
 	public long upgrade(long myMana);
 	
-	// Kikéri a GameStatic tól a torony manaárát
+	// Kikri a GameStatic tl a torony manart
 	public long buildPrice();
 	
-	// Aktiválja az aktuális kő hatását az ellenséges egységeken
+	// Aktivlja az aktulis k hatst az ellensges egysgeken
 	public void useMyRock(Collection<IEnemy> victims, boolean inside, boolean activate);
 }

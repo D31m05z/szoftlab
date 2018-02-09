@@ -1,7 +1,7 @@
 package Main;
 
 /*
-	Világ implementáció, IWorld-ot implementálja
+	Vilg implementci, IWorld-ot implementlja
 */
 
 import java.awt.Point;
@@ -22,34 +22,34 @@ import Towers.Rocks.IRock;
 
 public class World implements IWorld
 {
-	// Játék végződött verséggel
+	// Jtk vgzdtt versggel
 	private boolean gameOver = false;
 	
-	// Játék végződött győzelemmel
+	// Jtk vgzdtt gyzelemmel
 	private boolean gameWin = false;
 	
-	// Ellenségek kollekciója
+	// Ellensgek kollekcija
 	private Collection<IEnemy> enemies;
 	
-	// Tornyok kollekciója
+	// Tornyok kollekcija
 	private Collection<ITower> towers;
 	
-	// ConcreteCreatorok kollekciója
+	// ConcreteCreatorok kollekcija
 	private Map<String, ICreator> creators;
 	
-	// Már kifizetett kövek kollekciója
+	// Mr kifizetett kvek kollekcija
 	private Map<String, IRock> rocks = new HashMap<String, IRock>();
 
 	private List<IRoad> roads = new ArrayList<IRoad>();
 	
-	// Kollekciók lekérdezése
+	// Kollekcik lekrdezse
 	public Map<String, IRock> getRocks() { return rocks; }
 	public Collection<IEnemy> getEnemies() { return enemies; }
 	public Collection<ITower> getTowers() { return towers; }
 	public List<IRoad> getRoads() { return roads; }
 	
 	
-	// Konstruktor, kötelező megadni a ConcreteCreatorok-at tartalmazó asszociatív tömböt
+	// Konstruktor, ktelez megadni a ConcreteCreatorok-at tartalmaz asszociatv tmbt
 	public World(Map<String,ICreator> c)
 	{
 		creators = c;		
@@ -57,9 +57,9 @@ public class World implements IWorld
 		enemies = new ArrayList<IEnemy>();
 	}
 
-	// Értesítés arról, hogy idő telt el, ekkor elször a tornyok értesülnek
-	// erről, majd az ellenséek, ezek után ha már minden ellenség mehalt
-	// és minden körön túlvagyunk, annak beállítása, hogy a játék véget ért
+	// rtests arrl, hogy id telt el, ekkor elszr a tornyok rteslnek
+	// errl, majd az ellensek, ezek utn ha mr minden ellensg mehalt
+	// s minden krn tlvagyunk, annak belltsa, hogy a jtk vget rt
 	public long Update(long dt, long mana)
 	{
 		for (ITower t : towers) 
@@ -76,8 +76,8 @@ public class World implements IWorld
 	}
 	private int spawnoltKorokSzama = -1;
 	
-	// 1-es �s 4-es utakon j�het ellens�g
-	// mivel a roads kollekci�t c�mezz�k ez�rt figyelembe kell venni az indexeket
+	// 1-es s 4-es utakon jhet ellensg
+	// mivel a roads kollekcit cmezzk ezrt figyelembe kell venni az indexeket
 	// le kell vonni 1-et
 	private int[] road_ids = {1-1,4-1};
 	private int road_id = 0;
@@ -120,9 +120,9 @@ public class World implements IWorld
 		}
 	}
 
-	// Kő létrehozása, aktuális mana átvétele. A követ a ConcreteCreator-orjának neve azonsítja
-	// Kő csak akkor hozható létre, ha van rá elég mana, akkor ennek étéke csökken a kő árával
-	// Visszatér a fennmaradó mana mennyiségével
+	// K ltrehozsa, aktulis mana tvtele. A kvet a ConcreteCreator-orjnak neve azonstja
+	// K csak akkor hozhat ltre, ha van r elg mana, akkor ennek tke cskken a k rval
+	// Visszatr a fennmarad mana mennyisgvel
 	public long createRock(long mana, String name)
 	{
 		if (!rocks.containsKey(name))
@@ -137,25 +137,25 @@ public class World implements IWorld
 		return mana;
 	}
 	
-	// Annak eldöntése, hogy az adott helyre lehet-e tornyok létrehozni
-	// annak figyelembevételével, hogy milyen utak léteznek a világban
+	// Annak eldntse, hogy az adott helyre lehet-e tornyok ltrehozni
+	// annak figyelembevtelvel, hogy milyen utak lteznek a vilgban
 	private boolean canAddTower(Collection<IRoad> roads, Point location)
 	{
 		boolean result = true;
 		for (IRoad road : roads)
 		{
-			// Spline lekérdezése
+			// Spline lekrdezse
 			Spline spline = road.getSpline();
 			Point start = spline.getStart();
 			Point end = spline.getEnd();
 			
-			// Háromszögeléses módszer alkalmazása azért, mert a spline 2 pontra feszít
+			// Hromszgelses mdszer alkalmazsa azrt, mert a spline 2 pontra feszt
 			if(-start.distance(end) + location.distance(end) + location.distance(start) - 1 < 0)
 			{
 				result = false;
 			}
 						
-			// Rekurzió megvalósítása
+			// Rekurzi megvalstsa
 			boolean insideResult = true;
 			if(road.getNextRoadParts() != null)
 				insideResult = canAddTower(road.getNextRoadParts(), location);
@@ -166,21 +166,21 @@ public class World implements IWorld
 		return result;
 	}
 	
-	// Torony hozzáadása, a létező utak figyelembevételével, a tonyot a ConcreteCreator-orjának neve
-	// azonsítja, valamit megadjuk a pontot is
-	// Visszatér azzal, mennyi mana maradt
+	// Torony hozzadsa, a ltez utak figyelembevtelvel, a tonyot a ConcreteCreator-orjnak neve
+	// azonstja, valamit megadjuk a pontot is
+	// Visszatr azzal, mennyi mana maradt
 	public long addTower(long mana,Collection<IRoad> roads, String name, Point location)
 	{		
-		// Ha nem lehet tornyot lerakni, visszatérés
+		// Ha nem lehet tornyot lerakni, visszatrs
 		if(!canAddTower(roads, location)) 
 			return mana;
 		
-		// Torony létrehozása
+		// Torony ltrehozsa
 		ITower t = (ITower) creators.get(name).create();
 		t.setWorld(this);
 		t.setLocation(location);
 		
-		// Ha van elég mana, akkor megvizsgáljuk a többi toronyhoz nincs-e túl közel
+		// Ha van elg mana, akkor megvizsgljuk a tbbi toronyhoz nincs-e tl kzel
 		if(mana >= t.buildPrice())
 		{
 			double minDist = Double.MAX_VALUE;
@@ -192,10 +192,10 @@ public class World implements IWorld
 					minDist = dist;
 				}
 			}
-			// Ha nincs túl közel más toronyhoz, akkor fel lehet venni
+			// Ha nincs tl kzel ms toronyhoz, akkor fel lehet venni
 			if (minDist > GameStatics.MinDistanceBetweenTowers || minDist == Double.MAX_VALUE)
 			{
-				// Kollekcióhoz a példány hozzáadása, valamit mana csökkentése a torony árával
+				// Kollekcihoz a pldny hozzadsa, valamit mana cskkentse a torony rval
 				towers.add(t);
 				mana -= t.buildPrice();
 			}
@@ -203,14 +203,14 @@ public class World implements IWorld
 		return mana;
 	}
 
-	// Ellenség hozzáadása az ellenségek kollekciójához
+	// Ellensg hozzadsa az ellensgek kollekcijhoz
 	public void addEnemy(IEnemy enemy)
 	{
 		enemies.add(enemy);
 	}
 	
-	// Ellenség hozzáadása az ellenséek kollekciója
-	// valamint a megadott út beállítása az ellenségnek
+	// Ellensg hozzadsa az ellensek kollekcija
+	// valamint a megadott t belltsa az ellensgnek
 	public void addEnemy(String name, IRoad spawnOn)
 	{
 		IEnemy e = (IEnemy) creators.get(name).create();
@@ -220,8 +220,8 @@ public class World implements IWorld
 		enemies.add(e);
 	}
 	
-	// Annak felderítése, az adott ponton melyik torony van
-	// (vagyis melyik torony van a ponthoz a legközelebb)
+	// Annak feldertse, az adott ponton melyik torony van
+	// (vagyis melyik torony van a ponthoz a legkzelebb)
 	private ITower whoIsOn(Point p)
 	{
 		ITower result = null;
@@ -238,9 +238,9 @@ public class World implements IWorld
 		return result;
 	}
 	
-	// Kő hozzáadása ahhoz a toronyhoz ami a megadott
-	// ponton található. Csak akkor lehet ezt megtenni,
-	// ha ehhez van elég mana. A megmaradt manával visszatér
+	// K hozzadsa ahhoz a toronyhoz ami a megadott
+	// ponton tallhat. Csak akkor lehet ezt megtenni,
+	// ha ehhez van elg mana. A megmaradt manval visszatr
 	public long addRock(long mana, String r, Point location)
 	{		
 		ITower result = whoIsOn(location);
@@ -262,8 +262,8 @@ public class World implements IWorld
 		return mana;
 	}
 	
-	// Toronyről kő levétele, ekkor az ellenségeken deaktiváljuk a
-	// kő hatását is
+	// Toronyrl k levtele, ekkor az ellensgeken deaktivljuk a
+	// k hatst is
 	public void removeRock(Point location)
 	{
 		ITower result = whoIsOn(location);
@@ -277,8 +277,8 @@ public class World implements IWorld
 		}
 	}
 	
-	// Adott ponton lévő torony fejlesztése,
-	// ha van rá elég mana. A megmaradt manával visszatér
+	// Adott ponton lv torony fejlesztse,
+	// ha van r elg mana. A megmaradt manval visszatr
 	public long upgradeTower(long mana, Point location)
 	{
 		ITower result = whoIsOn(location);
@@ -288,31 +288,31 @@ public class World implements IWorld
 		return mana;
 	}
 
-	// Ellenségek számának lekérdezése
+	// Ellensgek szmnak lekrdezse
 	public int getEnemyCount()
 	{
 		return enemies.size();
 	}
 	
-	// Vereség lekérdezése
+	// Veresg lekrdezse
 	public boolean getGameOver()
 	{
 		return gameOver;
 	}
 	
-	// Nyereség lekérdezése
+	// Nyeresg lekrdezse
 	public boolean getGameWin()
 	{
 		return gameWin;
 	}
 
-	// Ellenség eltávolítása a listáról
+	// Ellensg eltvoltsa a listrl
 	public void removeEnemy(IEnemy enemy) 
 	{
 		enemies.remove(enemy);
 	}
 
-	// Vereség jelzés beállítása
+	// Veresg jelzs belltsa
 	public void gameLost() 
 	{
 		gameOver = true;

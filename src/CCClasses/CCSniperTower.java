@@ -3,7 +3,7 @@ import Towers.SniperTower;
 
 /*
 	A SniperTower ConcreteCreatora,
-	visszatér egy SniperTower referenciával
+	visszater egy SniperTower referenciaval
 */
 
 public class CCSniperTower implements ICreator 

@@ -3,17 +3,17 @@ package Road;
 import Main.Drawable;
 
 /*
-	Blokádok interfésze
+	Blokdok interfsze
 */
 
 public interface IBlockade extends Drawable
 {
-	// Blokád fogadja a támadást
+	// Blokd fogadja a tmadst
 	public void damage(long damage);
 	
-	// Útparaméter elkérése
+	// tparamter elkrse
 	public long getT();
 	
-	// Javítás kezdeményezése
+	// Javts kezdemnyezse
 	public void repair();
 }

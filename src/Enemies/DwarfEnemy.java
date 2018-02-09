@@ -1,7 +1,7 @@
 package Enemies;
 
 /*
-	DwarfEnemy osztály, az Enemy leszármazottja
+	DwarfEnemy osztly, az Enemy leszrmazottja
 */
 
 import java.awt.Color;
@@ -12,7 +12,7 @@ import Main.GameStatics;
 
 public class DwarfEnemy extends Enemy
 {
-	// Konstruktor, támadóerő, sebesség és hp beállítása
+	// Konstruktor, tmader, sebessg s hp belltsa
 	public DwarfEnemy()
 	{
 		damagePower = GameStatics.Enemies.Dwarf.damagePower;
@@ -20,8 +20,8 @@ public class DwarfEnemy extends Enemy
 		hp = GameStatics.Enemies.Dwarf.initHp;
 	}
 
-	// Támadás fogadása, tekintettel arra, hogy a
-	// dwarf-okra hat a dragon kő is
+	// Tmads fogadsa, tekintettel arra, hogy a
+	// dwarf-okra hat a dragon k is
 	public long damage(long damage, long mana)
 	{
 		if (isDragonOnMe)
@@ -30,7 +30,7 @@ public class DwarfEnemy extends Enemy
 			return damageMySelf(damage, mana);
 	}
 	
-	// Másoldó metódus (a split-hez kell)
+	// Msold metdus (a split-hez kell)
 	protected Enemy copy()
 	{
 		return new DwarfEnemy();

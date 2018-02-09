@@ -1,8 +1,8 @@
 package Towers;
 
 /*
-	Torony ősosztálya, amely megvalósítja az ITower interfacet. 
-	Ezen osztály tartalmazza a kövek közös tulajdonságait, alapvető függvénymegvalósításokat.
+	Torony sosztlya, amely megvalstja az ITower interfacet. 
+	Ezen osztly tartalmazza a kvek kzs tulajdonsgait, alapvet fggvnymegvalstsokat.
 */
 
 import java.awt.Point;
@@ -27,7 +27,7 @@ public abstract class Tower implements ITower
 	public abstract long getFireRate();	
 	public abstract long upgrade(long mana);
 	
-	// Aktiválja az aktuális kő hatását az ellenséges egységeken
+	// Aktivlja az aktulis k hatst az ellensges egysgeken
 	public void useMyRock(Collection<IEnemy> victims, boolean inside, boolean activate)
 	{
 		if (myRock != null)
@@ -41,7 +41,7 @@ public abstract class Tower implements ITower
 				}
 	}
 	
-	// Az idő múlásáról való értesítés
+	// Az id mlsrl val rtests
 	public long action(long dt, Collection<IEnemy> victims, long mana) 
 	{
 		useMyRock(victims, true, true);
@@ -57,50 +57,50 @@ public abstract class Tower implements ITower
 		return mana;
 	}
 	
-	// Megtámadja a kiválasztott ellenfelet
+	// Megtmadja a kivlasztott ellenfelet
 	public long attackLastChoosed(long mana)
 	{
 		if (lastChoosed != null) mana = lastChoosed.damage(getDamage(), mana);
 		return mana;
 	}
 	
-	// Beállítja a torony helyzetét
+	// Belltja a torony helyzett
 	public void setLocation(Point p)
 	{
 		location = p;
 	}
 
-	// Visszaadja a torony aktuális helyzetét
+	// Visszaadja a torony aktulis helyzett
 	public Point getLocation()
 	{
 		return location;		
 	}
 
-	// Felrakja a toronyra a követ
+	// Felrakja a toronyra a kvet
 	public void applyRock(IRock r) 
 	{
 		myRock = r;
 	}
 	
-	// Eltávolítja a toronyról a követ
+	// Eltvoltja a toronyrl a kvet
 	public void removeRock() 
 	{
 		myRock = null;
 	}
 	
-	// Beállítja a világot a torony számára
+	// Belltja a vilgot a torony szmra
 	public void setWorld(IWorld w)
 	{
 		myWorld = w;
 	}
 	
-	// Visszaadja a tornyon lévő követ
+	// Visszaadja a tornyon lv kvet
 	public IRock getMyRock()
 	{
 		return myRock;
 	}
 
-	// A torony kiválasztja azt az ellenséget amelyet támadni fog
+	// A torony kivlasztja azt az ellensget amelyet tmadni fog
 	public void chooseVictim(Collection<IEnemy> victims)
 	{
 		double d = -1;
@@ -121,7 +121,7 @@ public abstract class Tower implements ITower
 		}
 	}
 	
-	// Visszaadja az utoljára kiválasztott ellenfél referenciáját
+	// Visszaadja az utoljra kivlasztott ellenfl referencijt
 	public IEnemy getLastChoosed() 
 	{
 		return lastChoosed;

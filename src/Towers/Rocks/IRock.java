@@ -1,19 +1,19 @@
 package Towers.Rocks;
 
 /*
-	A kövek	interfésze, ezen keresztül látják a kövek függvényeit
+	A kvek	interfsze, ezen keresztl ltjk a kvek fggvnyeit
 */
 
 import Enemies.Enemy;
 
 public interface IRock 
 {
-	// A megadott ellenségen kifejti a kő hatását
+	// A megadott ellensgen kifejti a k hatst
 	public void activateOn(Enemy e);
 	
-	// A megadott ellenségen deaktiválja a kő hatását
+	// A megadott ellensgen deaktivlja a k hatst
 	public void deactivateOn(Enemy e);
 	
-	// A GameStatics osztályból elkéri a kő árát
+	// A GameStatics osztlybl elkri a k rt
 	public long getCost();
 }

@@ -1,7 +1,7 @@
 package Road;
 
 /*
-	Utat megtestesítő osztály
+	Utat megtestest osztly
 */
 
 import java.awt.Point;
@@ -13,49 +13,49 @@ import Road.Spline.*;
 
 public class Road implements IRoad
 {
-	// A világra mutató referencia
+	// A vilgra mutat referencia
 	private IWorld myWorld = null;
 	
-	// Kezdő és végső útparaméterek
+	// Kezd s vgs tparamterek
 	private long startParam = 0;
 	private long endParam = 10000;
 	
-	// A lehetséges következő útszakaszok és blokádok kollekciói
+	// A lehetsges kvetkez tszakaszok s blokdok kollekcii
 	private List<IRoad> nextRoadParts = new ArrayList<IRoad>();
 	private Collection<IBlockade> blockades = new ArrayList<IBlockade> ();
 	
-	// Az utat megtestesítő splinera mutató referencia
+	// Az utat megtestest splinera mutat referencia
 	private Spline s = new Spline();
 	
-	// Az utat meghatározó spline referenciája (strategy pattern)
+	// Az utat meghatroz spline referencija (strategy pattern)
 	public Spline getSpline()
 	{
 		return s;
 	}
 	
-	// Az úthoz kapcsolódó utak (amik a következők lehetnek) kollekciójával tér vissza
+	// Az thoz kapcsold utak (amik a kvetkezk lehetnek) kollekcijval tr vissza
 	public Collection<IRoad> getNextRoadParts()
 	{
 		return nextRoadParts;
 	}
 	
-	// Az úton található blokádok kollekciójával tér vissza
+	// Az ton tallhat blokdok kollekcijval tr vissza
 	public Collection<IBlockade> getBlockades()
 	{
 		return blockades;
 	}
 	
-	// Adott útparaméterhez tartozó koordináta elkérése
+	// Adott tparamterhez tartoz koordinta elkrse
 	public Point getLocation(long t)
 	{
 		return s.getPoint(t);
 	}
 
-	// Ellenség léptetése t1 paramétertől t2-be, ennek pontos menetét lásd a dokumentációban
-	// Visszatér azzal, hogy sikerült-e eljutni t2-be
+	// Ellensg lptetse t1 paramtertl t2-be, ennek pontos menett lsd a dokumentciban
+	// Visszatr azzal, hogy sikerlt-e eljutni t2-be
 	public boolean move(IEnemy e, long t1, long t2)
 	{		
-		// Annak eldöntése, hogy melyik úton kell esetlegesen továbbküldeni az ellenségen
+		// Annak eldntse, hogy melyik ton kell esetlegesen tovbbkldeni az ellensgen
 		Collections.shuffle(nextRoadParts);
 		IRoad nextRoadPart = null;
 		if (nextRoadParts.size() > 0)
@@ -64,24 +64,24 @@ public class Road implements IRoad
 		}
 
 		
-		// Ha a célpont még az úton van
+		// Ha a clpont mg az ton van
 		if (t2 <= endParam)
 		{
-			// A t1 és t2 közötti blokádok lekérdezése
+			// A t1 s t2 kztti blokdok lekrdezse
 			IBlockade b = getMyBlockadeBetween(t1, t2);
 			
 			if (b == null)
 			{
-				// Ha b null, akkor az ellenség útparaméterének beállítása t2-re
-				// és célpontjának törlése, visszatérés "igaz" értékkel (mivel sikerült eljutni t2-be)
+				// Ha b null, akkor az ellensg tparamternek belltsa t2-re
+				// s clpontjnak trlse, visszatrs "igaz" rtkkel (mivel sikerlt eljutni t2-be)
 				e.setRoadParameter(t2);
 				e.setTarget(null);
 				return true;
 			}
 			else
 			{
-				// Ha b nem null, akkor csak addig jutunk el, vagyis az ellnség paramétere
-				// b útparamétere, az ellenség célpontja b, visszatérés "hamis" értékkel
+				// Ha b nem null, akkor csak addig jutunk el, vagyis az ellnsg paramtere
+				// b tparamtere, az ellensg clpontja b, visszatrs "hamis" rtkkel
 				e.setRoadParameter(b.getT());
 				e.setTarget(b);
 				return false;
@@ -89,22 +89,22 @@ public class Road implements IRoad
 		}
 		else
 		{
-			// Az út végéig el kell érni, ennek megkísérlése
+			// Az t vgig el kell rni, ennek megksrlse
 			if (move(e, t1, endParam))
 			{
-				// Ezen az úton sikerült végigmenni
+				// Ezen az ton sikerlt vgigmenni
 				if (nextRoadPart == null)
 				{
-					// Nincs már több út, vagyis ez az út a végzet hegyéhez vezetett,
-					// ekkor a világ értesül arról, hogy egy ellenség elérte ezt
+					// Nincs mr tbb t, vagyis ez az t a vgzet hegyhez vezetett,
+					// ekkor a vilg rtesl arrl, hogy egy ellensg elrte ezt
 					myWorld.gameLost();
 					return false;
 				}
 				else
 				{
-					// Van következő útszakasz, akkor az ellenség útszakasza az lesz,
-					// és a következő útszakaszon megpróábáljuk mozgatni az ellenséget
-					// az út kezdetétől addig amennyi még fennmaradt a haladásból
+					// Van kvetkez tszakasz, akkor az ellensg tszakasza az lesz,
+					// s a kvetkez tszakaszon megprbljuk mozgatni az ellensget
+					// az t kezdettl addig amennyi mg fennmaradt a haladsbl
 					e.setRoad(nextRoadPart);
 					e.setRoadParameter(nextRoadPart.getStart());
 					//System.out.println("next road");
@@ -117,7 +117,7 @@ public class Road implements IRoad
 		}
 	}
 
-	// Blokád hozzáadása a megadot útparaméterhez
+	// Blokd hozzadsa a megadot tparamterhez
 	public long addBlockade(long t, long mana)
 	{
 		if (mana >= GameStatics.BlockadeCost)
@@ -129,13 +129,13 @@ public class Road implements IRoad
 		return mana;
 	}
 
-	// Adott referenciájú blokád eltávolítása
+	// Adott referencij blokd eltvoltsa
 	public void removeBlockade(IBlockade b)
 	{
 		blockades.remove(b);
 	}
 
-	// Adott útparaméteren található blokád javítása
+	// Adott tparamteren tallhat blokd javtsa
 	public void repairBlockadeAt(long roadParameter)
 	{
 		for (IBlockade b : blockades)
@@ -147,43 +147,43 @@ public class Road implements IRoad
 		}
 	}
 
-	// Világ beállítása
+	// Vilg belltsa
 	public void setWorld(IWorld w)
 	{
 		myWorld = w;
 	}
 
-	// Végső útparaméter elkérése
+	// Vgs tparamter elkrse
 	public long getEnd()
 	{
 		return endParam;
 	}
 
-	// Kezdő útparaméter elkérése
+	// Kezd tparamter elkrse
 	public long getStart()
 	{
 		return startParam;
 	}
 
-	// Végső útparaméter beállítása
+	// Vgs tparamter belltsa
 	public void setEnd(long t)
 	{
 		endParam = t;
 	}
 
-	// Kezdő útparaméter beállítása
+	// Kezd tparamter belltsa
 	public void setStart(long t)
 	{
 		startParam = t;
 	}
 
-	// A lehetséges következő útszakaszok listájának bővítése
+	// A lehetsges kvetkez tszakaszok listjnak bvtse
 	public void setNext(IRoad r)
 	{
 		nextRoadParts.add(r);
 	}
 
-	// t1 és t2 közötti blokádok megkeresése, ezek közül egyel visszatér
+	// t1 s t2 kztti blokdok megkeresse, ezek kzl egyel visszatr
 	public IBlockade getMyBlockadeBetween(long t1, long t2)
 	{
 		IBlockade result = null;

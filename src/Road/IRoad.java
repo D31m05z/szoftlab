@@ -1,8 +1,8 @@
 package Road;
 
 /*
-	Az út osztály interfésze, az Engine és
-	az ellenségek ezen kereszül ismerik
+	Az t osztly interfsze, az Engine s
+	az ellensgek ezen kereszl ismerik
 */
 
 import java.awt.Point;
@@ -13,30 +13,30 @@ import Road.Spline.Spline;
 
 public interface IRoad
 {
-	// Ellenség léptetése t1 paramétertől t2-be
+	// Ellensg lptetse t1 paramtertl t2-be
 	public boolean move(IEnemy enemy, long t1, long t2);
 	
-	// Adott referenciájú blokád eltávolítása
+	// Adott referencij blokd eltvoltsa
 	public void removeBlockade(IBlockade blockade);
 	
-	// Adott útparaméterhez tartozó koordináta elkérése
+	// Adott tparamterhez tartoz koordinta elkrse
 	public Point getLocation(long t);
 	
-	// Kezdő útparaméter elkérése
+	// Kezd tparamter elkrse
 	public long getStart();
 	
-	// Blokád hozzáadása a megadot útparaméterhez
+	// Blokd hozzadsa a megadot tparamterhez
 	public long addBlockade(long t, long mana);
 	
-	// Adott útparaméteren található blokád javítása
+	// Adott tparamteren tallhat blokd javtsa
 	public void repairBlockadeAt(long roadParameter);
 	
-	// Világ beállítása
+	// Vilg belltsa
 	public void setWorld(IWorld w);
 	
-	// Az utat meghatározó spline referenciája (strategy pattern)
+	// Az utat meghatroz spline referencija (strategy pattern)
 	public Spline getSpline();
 	
-	// Az úthoz kapcsolódó utak (amik a következők lehetnek) kollekciójával tér vissza
+	// Az thoz kapcsold utak (amik a kvetkezk lehetnek) kollekcijval tr vissza
 	public Collection<IRoad> getNextRoadParts();
 }

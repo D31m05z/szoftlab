@@ -3,11 +3,11 @@ import Towers.Rocks.DragonRock;
 
 /*
 	A DragonRock ConcreteCreatora,
-	visszatér egy DragonRock referenciával
+	visszater egy DragonRock referenciaval
 	
-	A DragonRock singleton, ezért nem lehet
-	meghívni a konstruktorát, viszont
-	van getInstance függvénye
+	A DragonRock singleton, ezert nem lehet
+	meghivni a konstruktorat, viszont
+	van getInstance fuggvenye
 */
 
 public class CCDragonRock implements ICreator 

@@ -1,7 +1,7 @@
 package Main;
 
 /*
-	A világ interfésze, az objektumok ezen keresztül ismerik a világot
+	A vilg interfsze, az objektumok ezen keresztl ismerik a vilgot
 */
 
 
@@ -9,12 +9,12 @@ import Enemies.IEnemy;
 
 public interface IWorld
 {
-	// Ellenség törlése
+	// Ellensg trlse
 	public void removeEnemy(IEnemy enemy);
 	
-	// Ellenség felvétele
+	// Ellensg felvtele
 	public void addEnemy(IEnemy enemy);
 	
-	// Annak jelzése, hogy egy ellenség elérte a végzet hegyét
+	// Annak jelzse, hogy egy ellensg elrte a vgzet hegyt
 	public void gameLost();
 }

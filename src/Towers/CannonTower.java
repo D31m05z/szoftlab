@@ -1,8 +1,8 @@
 package Towers;
 
 /*
-	Ă�gyĂş torony osztĂˇlya. A torony Ă¶sosztĂˇly leszĂˇrmazottja, Ă­gy a torony interface t is megvalĂłsĂ­tja
-	Az ĂˇgyĂş torony fĂĽggvĂ©nyeit valĂłsĂ­tja meg.
+	gy torony osztlya. A torony sosztly leszrmazottja, gy a torony interface t is megvalstja
+	Az gy torony fggvnyeit valstja meg.
 */
 
 import java.awt.Color;
@@ -17,7 +17,7 @@ public class CannonTower extends Tower
 {
 	public CannonTower()  { }
 	
-	// A GameStatics osztĂˇlybĂłl elkĂ©ri a torony hatĂłtĂˇvolsĂˇgĂˇt
+	// A GameStatics osztlybl elkri a torony hattvolsgt
 	public long getRange() 
 	{
 		double corrig = 1;
@@ -26,13 +26,13 @@ public class CannonTower extends Tower
 		return (long)(GameStatics.Towers.Cannon.fireRange[state] * corrig);
 	}
 
-	// A GameStatics osztĂˇlybĂłl elkĂ©ri a torony sebzĂ©sĂ©t
+	// A GameStatics osztlybl elkri a torony sebzst
 	public long getDamage()
 	{
 		return GameStatics.Towers.Cannon.fireDamage[state];
 	}
 
-	// A GameStatics osztĂˇlybĂłl elkĂ©ri a torony tĹ±zgyorsasĂˇgĂˇt
+	// A GameStatics osztlybl elkri a torony tzgyorsasgt
 	public long getFireRate() 
 	{
 		return GameStatics.Towers.Cannon.fireRate[state];
@@ -43,7 +43,7 @@ public class CannonTower extends Tower
 		Drawer.getInstance().Draw(g, this);
 	}
 
-	// A torony fejlesztĂ©se, amellyel minden attribĂştumĂ©rtĂ©ke javul
+	// A torony fejlesztse, amellyel minden attribtumrtke javul
 	public long upgrade(long mana) 
 	{
 		long cost = GameStatics.Towers.Cannon.upgradeCosts[state];
@@ -55,7 +55,7 @@ public class CannonTower extends Tower
 		return mana;
 	}
 	
-	// A GameStatics osztĂˇlybĂłl elkĂ©ri a torony ĂˇrĂˇt
+	// A GameStatics osztlybl elkri a torony rt
 	public long buildPrice()
 	{
 		return GameStatics.Towers.Cannon.initCost;

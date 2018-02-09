@@ -1,7 +1,7 @@
 package Enemies;
 
 /*
-	HumanEnemy osztály, az Enemy leszármazottja
+	HumanEnemy osztly, az Enemy leszrmazottja
 */
 
 import java.awt.Color;
@@ -12,7 +12,7 @@ import Main.GameStatics;
 
 public class HumanEnemy extends Enemy 
 {
-	// Konstruktor, támadóerő, sebesség és hp beállítása
+	// Konstruktor, tmader, sebessg s hp belltsa
 	public HumanEnemy()
 	{
 		damagePower = GameStatics.Enemies.Human.damagePower;
@@ -20,7 +20,7 @@ public class HumanEnemy extends Enemy
 		hp = GameStatics.Enemies.Human.initHp;
 	}
 	
-	// Másoldó metódus (a split-hez kell)
+	// Msold metdus (a split-hez kell)
 	protected Enemy copy()
 	{
 		return new HumanEnemy();

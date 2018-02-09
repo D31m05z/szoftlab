@@ -1,9 +1,9 @@
 package Enemies;
 
 /*
-	Ellenségek absztrakt ősosztálya. Megvalósítja az
-	IEnemy interfészt, és taralmazza az abban található
-	metódusok alapértelmezett implementációját
+	Ellensgek absztrakt sosztlya. Megvalstja az
+	IEnemy interfszt, s taralmazza az abban tallhat
+	metdusok alaprtelmezett implementcijt
 */
 
 import java.awt.Point;
@@ -13,38 +13,38 @@ import Towers.Rocks.*;
 
 public abstract class Enemy extends Object implements IEnemy {
 
-	// Életpontok mennyisége
+	// letpontok mennyisge
 	protected long hp = 0;
 	
-	// A világra mutató referencia
+	// A vilgra mutat referencia
 	protected IWorld myWorld = null;
 	
-	// Kövek jelenlétét jelző flag-ek
+	// Kvek jelenltt jelz flag-ek
 	protected boolean isFateOnMe = false;
 	protected boolean isJarOnMe = false;
 	protected boolean isDragonOnMe = false;
 	
-	// Útparaméter
+	// tparamter
 	protected long roadParameter = 0;
 	
-	// Haladási sebesség (mértéke útparaméter/ms)
+	// Haladsi sebessg (mrtke tparamter/ms)
 	protected long speed = 0;
 	
-	// Támadóerő
+	// Tmader
 	protected long damagePower = 0;
 	
-	// A megölésért járó extra mana
+	// A meglsrt jr extra mana
 	protected long manabonus = 0;
 	
-	// Az aktuális útra mutató referencia
+	// Az aktulis tra mutat referencia
 	protected IRoad myRoad = null;
 	
-	// Az aktuálisan támadandó blokádra mutató referencia
+	// Az aktulisan tmadand blokdra mutat referencia
 	protected IBlockade target = null;
 
-	// Támadás fogadása, vagyis az életerő csökkentése,
-	// ha elfogyott, akkor a világból az ellenség törlése
-	// illetve a visszaadandó mana kiszámítása
+	// Tmads fogadsa, vagyis az leter cskkentse,
+	// ha elfogyott, akkor a vilgbl az ellensg trlse
+	// illetve a visszaadand mana kiszmtsa
 	protected long damageMySelf(long damage, long mana) {
 		hp -= damage;
 		if (hp <= 0) {
@@ -54,70 +54,70 @@ public abstract class Enemy extends Object implements IEnemy {
 		return mana;
 	}
 
-	// Úton történő előrehaladás metódusa. A távolás a sebesség
-	// és az eltelt idő (ami ms-ben értendő) szorzata). A mozgást
-	// az úton kell kezdeményezni
+	// ton trtn elrehalads metdusa. A tvols a sebessg
+	// s az eltelt id (ami ms-ben rtend) szorzata). A mozgst
+	// az ton kell kezdemnyezni
 	public void moveForward(long dt) {
 		long distance = dt * speed;
 		myRoad.move(this, roadParameter, roadParameter + distance);
 	}
 
-	// Akadály megtámadása
+	// Akadly megtmadsa
 	public void attack() {
 		if (target != null)
 			target.damage(damagePower);
 	}
 
-	// Idő múlásáról való értesítés (ms-ben mérendő). Ekkor először
-	// kísérlet a továbbhaladásra majd blokád (ha van) megtámadása
+	// Id mlsrl val rtests (ms-ben mrend). Ekkor elszr
+	// ksrlet a tovbbhaladsra majd blokd (ha van) megtmadsa
 	public void action(long dt) {
 		moveForward(dt);
 		attack();
 	}
 	
-	// Támadásról való értesítés
+	// Tmadsrl val rtests
 	public long damage(long damage, long mana) {
 		return damageMySelf(damage, mana);
 	}
 
-	// Támadandó blokád beállítása
+	// Tmadand blokd belltsa
 	public void setTarget(IBlockade blockade) {
 		target = blockade;
 	}
 
-	// Értesítés kő aktiválásáról
+	// rtests k aktivlsrl
 	public void activateRock(IRock rock) {
 		rock.activateOn(this);
 	}
 
-	// Értesítés kő deaktiválásáról
+	// rtests k deaktivlsrl
 	public void deactivateRock(IRock rock) {
 		rock.deactivateOn(this);
 	}
 
-	// Útparaméter beállítása
+	// tparamter belltsa
 	public void setRoadParameter(long t) {
 		roadParameter = t;
 	}
 
-	// Aktuális út beállítása
+	// Aktulis t belltsa
 	public void setRoad(IRoad road) {
 		myRoad = road;
 	}
 
-	// Koordináta lekérdezése
+	// Koordinta lekrdezse
 	public Point getLocation() {
 		Point result = myRoad.getLocation(roadParameter);
 		return result;
 	}
 	
-	// Aktuális világ beállítása
+	// Aktulis vilg belltsa
 	public void setWorld(IWorld w) {
 		myWorld = w;
 	}
 
-	// Kettévágó támadás fogadása:
-	// életerő felezése, új ellenség példány létrehozása
+	// Kettvg tmads fogadsa:
+	// leter felezse, j ellensg pldny ltrehozsa
 	public void split() {
 		hp = hp / 2;
 		Enemy uj = copy();
@@ -128,65 +128,65 @@ public abstract class Enemy extends Object implements IEnemy {
 		myWorld.addEnemy(uj);
 	}
 
-	// Másoláshoz kellő konsturktorhívás
+	// Msolshoz kell konsturktorhvs
 	protected abstract Enemy copy();
 
-	// Aktuális célpontra mutató referencia elkérése
+	// Aktulis clpontra mutat referencia elkrse
 	public IBlockade getTarget() {
 		return target;
 	}
 
-	// Aktuális útra mutató referencia elkérése 
+	// Aktulis tra mutat referencia elkrse 
 	public IRoad getRoad() {
 		return myRoad;
 	}
 
-	// Aktuális életerő elkérése
+	// Aktulis leter elkrse
 	public long getHp() {
 		return hp;
 	}
 
-	// Támadóerő elkérése
+	// Tmader elkrse
 	public long getDamagePower() {
 		return damagePower;
 	}
 
-	// Sebesség elkérése
+	// Sebessg elkrse
 	public long getSpeed() {
 		return speed;
 	}
 
-	// Útparaméter elkérése
+	// tparamter elkrse
 	public long getRoadParameter() {
 		return roadParameter;
 	}
 
-	// Annak elkérése, hogy dragonRock aktív-e
+	// Annak elkrse, hogy dragonRock aktv-e
 	public boolean getDragon() {
 		return isDragonOnMe;
 	}
 
-	// Annak elkérése, hogy fateRock aktív-e
+	// Annak elkrse, hogy fateRock aktv-e
 	public boolean getFate() {
 		return isFateOnMe;
 	}
 
-	// Annak elkérése, hogy jarRock aktív-e
+	// Annak elkrse, hogy jarRock aktv-e
 	public boolean getJar() {
 		return isJarOnMe;
 	}
 
-	// Annak beállítása, hogy dragonRock aktív legyen
+	// Annak belltsa, hogy dragonRock aktv legyen
 	public void setDragon(boolean val) {
 		isDragonOnMe = val;
 	}
 
-	// Annak beállítása, hogy fateRock aktív legyen
+	// Annak belltsa, hogy fateRock aktv legyen
 	public void setFate(boolean val) {
 		isFateOnMe = val;
 	}
 
-	// Annak beállítása, hogy jarRock aktív legyen
+	// Annak belltsa, hogy jarRock aktv legyen
 	public void setJar(boolean val) {
 		isJarOnMe = val;
 	}

@@ -1,7 +1,7 @@
 package Road;
 
 /*
-	Blokád osztály, megvalósítja az IBlockade interfészt
+	Blokd osztly, megvalstja az IBlockade interfszt
 */
 
 import java.awt.Color;
@@ -13,16 +13,16 @@ import Main.GameStatics;
 
 public class Blockade implements IBlockade 
 {
-	// Útparaméter
+	// tparamter
 	private long t = 0;
 	
-	// Életerő
+	// leter
 	private long hp = 0;
 	
-	// Saját útra mutató referencia
+	// Sajt tra mutat referencia
 	private IRoad myRoad = null;
 	
-	// Publikus konstruktor, kötelező beállítani az utat és az útparamétert
+	// Publikus konstruktor, ktelez belltani az utat s az tparamtert
 	public Blockade(IRoad r, long t_)
 	{
 		t = t_;
@@ -30,19 +30,19 @@ public class Blockade implements IBlockade
 		hp = GameStatics.BlockadeHP;
 	}
 	
-	// Útparaméter elkérése
+	// tparamter elkrse
 	public long getT()
 	{
 		return t;
 	}
 	
-	// Javítás kezdeményezése
+	// Javts kezdemnyezse
 	public void repair()
 	{
 		hp = GameStatics.BlockadeHP;
 	}
 	
-	// Blokád fogadja a támadást, ha meghal, akkor az útról a való törlés kezdeményezése
+	// Blokd fogadja a tmadst, ha meghal, akkor az trl a val trls kezdemnyezse
 	public void damage(long d)
 	{
 		hp -= d;
@@ -52,7 +52,7 @@ public class Blockade implements IBlockade
 		}
 	}
 	
-	// Aktuális életpontok lekérdezése
+	// Aktulis letpontok lekrdezse
 	public long getHp() 
 	{
 		return hp;

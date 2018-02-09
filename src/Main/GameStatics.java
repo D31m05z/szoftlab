@@ -1,8 +1,8 @@
 package Main;
 
 /*
-	Játék konstansainak tárolása, ezt a késõbbiekben lehet helyettesíteni akár
-	egy xml parsolással is, ekkor a játék újrafordítás nélkül átszabható lesz majd
+	Jtk konstansainak trolsa, ezt a ksbbiekben lehet helyettesteni akr
+	egy xml parsolssal is, ekkor a jtk jrafordts nlkl tszabhat lesz majd
 */
 
 import java.awt.Point;
@@ -11,25 +11,25 @@ import java.util.*;
 
 public class GameStatics
 {
-	// Blokád életereje
+	// Blokd letereje
 	public static long BlockadeHP = 200;
 	
-	// Blokáb költsége
+	// Blokb kltsge
 	public static long BlockadeCost = 100;
 		
-	// Végzet hegyének helye
+	// Vgzet hegynek helye
 	public static Point LocOfHill = new Point(100,150);
 	
-	// Tornyok közötti minimális távolság
+	// Tornyok kztti minimlis tvolsg
 	public static float MinDistanceBetweenTowers = 50;//3
 	
-	// Blokádok közötti minimális távolság
+	// Blokdok kztti minimlis tvolsg
 	public static float MinDistanceBetweenBlockades = 100;
 	
-	// Tornyok adatait (ár, fejlesztések árai, hatótávolság, sebzés, lövési gyakoriság szintenként) tartalmazó osztáy
+	// Tornyok adatait (r, fejlesztsek rai, hattvolsg, sebzs, lvsi gyakorisg szintenknt) tartalmaz oszty
 	public static class Towers
 	{
-		// Lövésztorony adatai
+		// Lvsztorony adatai
 		public static class Sniper
 		{
 			public static long initCost = 100;
@@ -60,7 +60,7 @@ public class GameStatics
 		}
 	}
 	
-	// Ellenségek adatait (életerõ, támadóerõ, sebesség) tartalmazó osztály
+	// Ellensgek adatait (leter, tmader, sebessg) tartalmaz osztly
 	public static class Enemies
 	{
 		// HumanEnemy adatai
@@ -96,7 +96,7 @@ public class GameStatics
 		}
 	}
 	
-	// Kövek árai
+	// Kvek rai
 	public static class RockCosts
 	{
 		public static long Jar = 1000;
@@ -104,20 +104,20 @@ public class GameStatics
 		public static long Dragon = 1000;
 	}
 
-	// Körökhöz tartozó ellenségek leírása
+	// Krkhz tartoz ellensgek lersa
 	public static class SpawnInfo
 	{
 		
-		// Itt a becímzés a következõképpen néz ki:
-		// 		Elsõ szám: hányadik körben spawnolunk
-		//		Második szám: menyik számú útról van szó
-		// Ennek az eredménye a tömb egy eleme ami Object
+		// Itt a becmzs a kvetkezkppen nz ki:
+		// 		Els szm: hnyadik krben spawnolunk
+		//		Msodik szm: menyik szm trl van sz
+		// Ennek az eredmnye a tmb egy eleme ami Object
 		// Na ezt az Objectet le kell kasztolni Map-ra
-		//		Ezért itt is CSAK OLYAN cucc kerülhet bele
+		//		Ezrt itt is CSAK OLYAN cucc kerlhet bele
 		//		ami HashMap vagy HashMapPutRet
 		// Namost mi van ebben a Map-ban?
-		//		Olyan elemek amiket az ellenség CCOsztály hivatkozási
-		//		címzünk meg és az értékük meg Integer arról, hogy hány darab kell
+		//		Olyan elemek amiket az ellensg CCOsztly hivatkozsi
+		//		cmznk meg s az rtkk meg Integer arrl, hogy hny darab kell
 		public static Object[][] spawn =
 				new Object[][]
 				{

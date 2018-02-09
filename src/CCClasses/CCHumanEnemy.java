@@ -3,7 +3,7 @@ import Enemies.HumanEnemy;
 
 /*
 	A HumanEnemy ConcreteCreatora,
-	visszatér egy HumanEnemy referenciával
+	visszater egy HumanEnemy referenciaval
 */
 
 public class CCHumanEnemy implements ICreator

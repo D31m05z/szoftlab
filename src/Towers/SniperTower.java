@@ -1,8 +1,8 @@
 package Towers;
 
 /*
-	Lövész torony osztálya. A torony ösosztály leszármazottja, így a torony interface t is megvalósítja
-	A lövész torony függvényeit valósítja meg.
+	Lvsz torony osztlya. A torony sosztly leszrmazottja, gy a torony interface t is megvalstja
+	A lvsz torony fggvnyeit valstja meg.
 */
 
 import java.awt.Color;
@@ -17,7 +17,7 @@ public class SniperTower extends Tower
 {
 	public SniperTower()  {	}
 	
-	// A GameStatics osztályból elkéri a torony hatótávolságát
+	// A GameStatics osztlybl elkri a torony hattvolsgt
 	public long getRange() 
 	{
 		double corrig = 1;
@@ -26,13 +26,13 @@ public class SniperTower extends Tower
 		return (long)(GameStatics.Towers.Sniper.fireRange[state] * corrig);
 	}
 	
-	// A GameStatics osztályból elkéri a torony sebzését
+	// A GameStatics osztlybl elkri a torony sebzst
 	public long getDamage() 
 	{
 		return GameStatics.Towers.Sniper.fireDamage[state];
 	}
 
-	// A GameStatics osztályból elkéri a torony tűzgyorsaságát
+	// A GameStatics osztlybl elkri a torony tzgyorsasgt
 	public long getFireRate() 
 	{
 		return GameStatics.Towers.Sniper.fireRate[state];
@@ -42,7 +42,7 @@ public class SniperTower extends Tower
 	{
 		Drawer.getInstance().Draw(g, this);
 	}
-	// A torony fejlesztése, amellyel minden attribútumértéke javul
+	// A torony fejlesztse, amellyel minden attribtumrtke javul
 	public long upgrade(long mana) 
 	{
 		long cost = GameStatics.Towers.Sniper.upgradeCosts[state];
@@ -54,7 +54,7 @@ public class SniperTower extends Tower
 		return mana;
 	}
 
-	// A GameStatics osztályból elkéri a torony árát
+	// A GameStatics osztlybl elkri a torony rt
 	public long buildPrice()
 	{
 		return GameStatics.Towers.Sniper.initCost;

@@ -3,7 +3,7 @@ import Towers.CannonTower;
 
 /*
 	A CannonTower ConcreteCreatora,
-	visszatér egy CannonTower referenciával
+	visszater egy CannonTower referenciaval
 */
 
 public class CCCannonTower implements ICreator 

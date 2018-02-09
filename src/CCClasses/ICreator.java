@@ -2,8 +2,8 @@ package CCClasses;
 
 /*
 	A FactoryCreator minta ConcreteCreatorjainak
-	interfésze, egy publikus metódussal amely
-	a mintának megfelelően Object referenciával tér vissza.
+	interfesze, egy publikus metodussal amely
+	a mintanak megfelelen Object referencival ter vissza.
 */
 
 public interface ICreator

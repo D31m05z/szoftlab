@@ -1,11 +1,11 @@
 package Main;
 
 /*
-	HashMap bővítése, annyiban különbözik a HashMap-tól
-	hogy van putRet metódusa, ami miután hozzáadott a
-	Map-hoz egy kulcs-érték párt, visszatér a Map-pel
+	HashMap bvtse, annyiban klnbzik a HashMap-tl
+	hogy van putRet metdusa, ami miutn hozzadott a
+	Map-hoz egy kulcs-rtk prt, visszatr a Map-pel
 	
-	Ez a SpawnInformációk felépítésekor hasznos
+	Ez a SpawnInformcik felptsekor hasznos
 */
 
 import java.util.*;

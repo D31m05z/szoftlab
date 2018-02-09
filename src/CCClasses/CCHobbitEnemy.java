@@ -3,7 +3,7 @@ import Enemies.HobbitEnemy;
 
 /*
 	A HobbitEnemy ConcreteCreatora,
-	visszatér egy HobbitEnemy referenciával
+	visszater egy HobbitEnemy referenciaval
 */
 
 public class CCHobbitEnemy implements ICreator
