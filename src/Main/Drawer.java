@@ -41,26 +41,26 @@ public class Drawer {
 	private Drawer() 
 	{
 		// load towers texture
-		images.put("basicTower", new ImageIcon(".\\textures\\basicTower.png").getImage());
-		images.put("cannonTower", new ImageIcon(".\\textures\\cannonTower.png").getImage());
-		images.put("sniperTower", new ImageIcon(".\\textures\\sniperTower.png").getImage());
+		images.put("basicTower", new ImageIcon("./textures/basicTower.png").getImage());
+		images.put("cannonTower", new ImageIcon("./textures/cannonTower.png").getImage());
+		images.put("sniperTower", new ImageIcon("./textures/sniperTower.png").getImage());
 		
 		// load blockade texture
-		images.put("blockade", new ImageIcon(".\\textures\\blockade.png").getImage());
+		images.put("blockade", new ImageIcon("./textures/blockade.png").getImage());
 		
 		// load rocks texture
-		images.put("dragonRock", new ImageIcon(".\\textures\\dragonRock.png").getImage());
-		images.put("fateRock", new ImageIcon(".\\textures\\fateRock.png").getImage());
-		images.put("jarRock", new ImageIcon(".\\textures\\jarRock.png").getImage());
+		images.put("dragonRock", new ImageIcon("./textures/dragonRock.png").getImage());
+		images.put("fateRock", new ImageIcon("./textures/fateRock.png").getImage());
+		images.put("jarRock", new ImageIcon("./textures/jarRock.png").getImage());
 		
 		// load enemies texture
-		images.put("elfEnemy", new ImageIcon(".\\textures\\elfEnemy.png").getImage());
-		images.put("humanEnemy", new ImageIcon(".\\textures\\humanEnemy.png").getImage());
-		images.put("hobbitEnemy", new ImageIcon(".\\textures\\hobbitEnemy.png").getImage());
-		images.put("dwarfEnemy", new ImageIcon(".\\textures\\dwarfEnemy.png").getImage());
+		images.put("elfEnemy", new ImageIcon("./textures/elfEnemy.png").getImage());
+		images.put("humanEnemy", new ImageIcon("./textures/humanEnemy.png").getImage());
+		images.put("hobbitEnemy", new ImageIcon("./textures/hobbitEnemy.png").getImage());
+		images.put("dwarfEnemy", new ImageIcon("./textures/dwarfEnemy.png").getImage());
 		
 		// load background
-		images.put("background", new ImageIcon(".\\textures\\background.png").getImage());
+		images.put("background", new ImageIcon("./textures/background.png").getImage());
 	}
 	
 	public static Drawer getInstance() { return d; }

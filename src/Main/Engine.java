@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
 import java.util.*;
 
 import javax.swing.*;
@@ -24,10 +23,8 @@ import CCClasses.CCHumanEnemy;
 import CCClasses.CCJarRock;
 import CCClasses.CCSniperTower;
 import CCClasses.ICreator;
-import Enemies.*;
 import Road.*;
 import Road.Spline.SplinePoint;
-import Towers.*;
 
 public class Engine extends JFrame implements ActionListener {
 	private World world = null;
@@ -65,71 +62,71 @@ public class Engine extends JFrame implements ActionListener {
 
 		JToolBar toolbar = new JToolBar();
 
-		newGame = new JButton(new ImageIcon(".\\icons\\start-icon.png"));
+		newGame = new JButton(new ImageIcon("./icons/start-icon.png"));
 		newGame.setToolTipText("New game");
-		newGame.setRolloverIcon(new ImageIcon(".\\icons\\start-roll-icon.png"));
+		newGame.setRolloverIcon(new ImageIcon("./icons/start-roll-icon.png"));
 		newGame.addActionListener(this);
 		toolbar.add(newGame);
 
 		creatorsAndPlacers = new ButtonGroup();
 
-		newBasicTower = new JRadioButton(new ImageIcon(".\\icons\\basicTower-icon.png"));
+		newBasicTower = new JRadioButton(new ImageIcon("./icons/basicTower-icon.png"));
 		newBasicTower.setToolTipText("New Basic Tower");
-		newBasicTower.setSelectedIcon(new ImageIcon(".\\icons\\basicTower-roll-icon.png"));
+		newBasicTower.setSelectedIcon(new ImageIcon("./icons/basicTower-roll-icon.png"));
 		creatorsAndPlacers.add(newBasicTower);
 		toolbar.add(newBasicTower);
 
-		newCannonTower = new JRadioButton(new ImageIcon(".\\icons\\cannonTower-icon.png"));
+		newCannonTower = new JRadioButton(new ImageIcon("./icons/cannonTower-icon.png"));
 		newCannonTower.setToolTipText("New Cannon Tower");
-		newCannonTower.setSelectedIcon(new ImageIcon(".\\icons\\cannonTower-roll-icon.png"));
+		newCannonTower.setSelectedIcon(new ImageIcon("./icons/cannonTower-roll-icon.png"));
 		creatorsAndPlacers.add(newCannonTower);
 		toolbar.add(newCannonTower);
 
-		newSniperTower = new JRadioButton(new ImageIcon(".\\icons\\sniperTower-icon.png"));
+		newSniperTower = new JRadioButton(new ImageIcon("./icons/sniperTower-icon.png"));
 		newSniperTower.setToolTipText("New Sniper Tower");
-		newSniperTower.setSelectedIcon(new ImageIcon(".\\icons\\sniperTower-roll-icon.png"));
+		newSniperTower.setSelectedIcon(new ImageIcon("./icons/sniperTower-roll-icon.png"));
 		creatorsAndPlacers.add(newSniperTower);
 		toolbar.add(newSniperTower);
 
-		newBlockade = new JRadioButton(new ImageIcon(".\\icons\\blockade-icon.png"));
+		newBlockade = new JRadioButton(new ImageIcon("./icons/blockade-icon.png"));
 		newBlockade.setToolTipText("New Blockade");
-		newBlockade.setSelectedIcon(new ImageIcon(".\\icons\\blockade-roll-icon.png"));
+		newBlockade.setSelectedIcon(new ImageIcon("./icons/blockade-roll-icon.png"));
 		creatorsAndPlacers.add(newBlockade);
 		toolbar.add(newBlockade);
 
-		newDragonRock = new JButton(new ImageIcon(".\\icons\\dragonRock-create-icon.png"));
+		newDragonRock = new JButton(new ImageIcon("./icons/dragonRock-create-icon.png"));
 		newDragonRock.setToolTipText("New Dragon Rock");
-		newDragonRock.setRolloverIcon(new ImageIcon(".\\icons\\dragonRock-roll-icon.png"));
+		newDragonRock.setRolloverIcon(new ImageIcon("./icons/dragonRock-roll-icon.png"));
 		newDragonRock.addActionListener(this);
 		toolbar.add(newDragonRock);
 
-		newFateRock = new JButton(new ImageIcon(".\\icons\\fateRock-create-icon.png"));
+		newFateRock = new JButton(new ImageIcon("./icons/fateRock-create-icon.png"));
 		newFateRock.setToolTipText("New Fate Rock");
-		newFateRock.setRolloverIcon(new ImageIcon(".\\icons\\fateRock-roll-icon.png"));
+		newFateRock.setRolloverIcon(new ImageIcon("./icons/fateRock-roll-icon.png"));
 		newFateRock.addActionListener(this);
 		toolbar.add(newFateRock);
 
-		newJarRock = new JButton(new ImageIcon(".\\icons\\jarRock-create-icon.png"));
+		newJarRock = new JButton(new ImageIcon("./icons/jarRock-create-icon.png"));
 		newJarRock.setToolTipText("New Jar Rock");
-		newJarRock.setRolloverIcon(new ImageIcon(".\\icons\\jarRock-roll-icon.png"));
+		newJarRock.setRolloverIcon(new ImageIcon("./icons/jarRock-roll-icon.png"));
 		newJarRock.addActionListener(this);
 		toolbar.add(newJarRock);
 
-		placeDragonRock = new JRadioButton(new ImageIcon(".\\icons\\dragonRock-icon.png"));
+		placeDragonRock = new JRadioButton(new ImageIcon("./icons/dragonRock-icon.png"));
 		placeDragonRock.setToolTipText("Place Dragon Rock");
-		placeDragonRock.setSelectedIcon(new ImageIcon(".\\icons\\dragonRock-roll-icon.png"));
+		placeDragonRock.setSelectedIcon(new ImageIcon("./icons/dragonRock-roll-icon.png"));
 		creatorsAndPlacers.add(placeDragonRock);
 		toolbar.add(placeDragonRock);
 
-		placeFateRock = new JRadioButton(new ImageIcon(".\\icons\\fateRock-icon.png"));
+		placeFateRock = new JRadioButton(new ImageIcon("./icons/fateRock-icon.png"));
 		placeFateRock.setToolTipText("Place Fate Rock");
-		placeFateRock.setSelectedIcon(new ImageIcon(".\\icons\\fateRock-roll-icon.png"));
+		placeFateRock.setSelectedIcon(new ImageIcon("./icons/fateRock-roll-icon.png"));
 		creatorsAndPlacers.add(placeFateRock);
 		toolbar.add(placeFateRock);
 
-		placeJarRock = new JRadioButton(new ImageIcon(".\\icons\\jarRock-icon.png"));
+		placeJarRock = new JRadioButton(new ImageIcon("./icons/jarRock-icon.png"));
 		placeJarRock.setToolTipText("Plave Jar Rock");
-		placeJarRock.setSelectedIcon(new ImageIcon(".\\icons\\jarRock-roll-icon.png"));
+		placeJarRock.setSelectedIcon(new ImageIcon("./icons/jarRock-roll-icon.png"));
 		creatorsAndPlacers.add(placeJarRock);
 		toolbar.add(placeJarRock);
 
